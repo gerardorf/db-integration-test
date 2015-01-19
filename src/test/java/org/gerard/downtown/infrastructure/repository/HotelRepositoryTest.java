@@ -26,7 +26,6 @@ public class HotelRepositoryTest {
 	public void findAllHotelsDowntown() {
 		List<Hotel> hotels = repository.findDowntown("MADRID");
 		assertNotNull(hotels);
-		System.out.println(hotels);
 		assertThat("There should be one hotel in Madrid downtown", hotels, hasSize(1));
 	}
 
