@@ -18,7 +18,7 @@
 	</bean>
 
 	<context:component-scan
-		base-package="org.gerard.downtown.infrastructure.repository.jpa">
+		base-package="org.gerard.downtown.infrastructure.repository.jpa,org.gerard.downtown.infrastructure.repository">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>

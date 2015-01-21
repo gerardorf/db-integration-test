@@ -12,8 +12,8 @@ import javax.persistence.OneToOne;
 @NamedQuery(name = "Hotel.findDowntown", 
 			query = "SELECT h "
 					+ "FROM Hotel h "
-					+ "WHERE h.metersToCityCenter < 200 "
-					+ "AND h.city.name=:cityName")
+					+ "WHERE h.metersToCityCenter <= :downtownDistance "
+					+ "AND h.city.name = :cityName")
 public class Hotel {
 	
 	@Id
@@ -25,6 +25,13 @@ public class Hotel {
 	@JoinColumn(name="city_id", referencedColumnName="id")
 	private City city;
 	
+	public Hotel() {
+	}
+	public Hotel(String name, int metersToCityCenter, City city) {
+		this.name=name;
+		this.metersToCityCenter=metersToCityCenter;
+		this.city=city;
+	}
 	public Integer getId() {
 		return id;
 	}

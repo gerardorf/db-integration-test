@@ -11,13 +11,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JpaHotelRepository implements HotelRepository {
 
+	private static int downtownDistance=200;
+
 	@PersistenceContext
 	protected EntityManager entityManager;
 
 	@Override
 	public List<Hotel> findDowntown(String cityName) {
 		List<Hotel> hotels = entityManager.createNamedQuery("Hotel.findDowntown", Hotel.class)
-				.setParameter("cityName", cityName).getResultList();
+				.setParameter("cityName", cityName)
+				.setParameter("downtownDistance", downtownDistance)
+				.getResultList();
 		return hotels;
 	}
 	
